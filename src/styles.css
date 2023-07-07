@@ -250,12 +250,15 @@ hr {
     display: block;
   }
 
-  .options-container {
-    display: block;
-  }
-
   .start-screen-button {
     padding: 0.8em 2em;
+  }
+  .start-screen-container {
+    width: 60%;
+  }
+
+  .options-container {
+    display: block;
   }
 
   .option {
@@ -266,5 +269,9 @@ hr {
   .score-btn {
     display: flex;
     flex-direction: column;
+  }
+
+  .score {
+    margin: 0;
   }
 }
