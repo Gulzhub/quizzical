@@ -43,7 +43,6 @@ export default function Quiz() {
         });
         setQuestionsArray(arr);
         setLoading(false);
-        console.log("fetching");
       });
   }
 
