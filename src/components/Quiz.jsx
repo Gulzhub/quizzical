@@ -56,6 +56,8 @@ export default function Quiz() {
   // const [quizQuestions, setQuizQuestions] = useState(props.questionsArray);
 
   const handleOptionSelect = (questionIndex, option) => {
+    if (showCorrectAnswer) return; //to stop answers from being changed after results are shown
+
     setSelectedOptions((prevState) => ({
       ...prevState,
       [questionIndex]: option,
