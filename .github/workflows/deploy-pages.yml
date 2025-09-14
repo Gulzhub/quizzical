@@ -1,4 +1,4 @@
-# Simple workflow for deploying static content to Pages
+# Simple workflow for deploying static content to Pages updated with v4
 name: Deploy static content to Pages
 
 on:
