@@ -8,8 +8,8 @@ function App() {
 
   return (
     <main>
-      <div className="blob blob-1"></div>
-      <div className="blob blob-2"></div>
+      {/* <div className="blob blob-1"></div>
+      <div className="blob blob-2"></div> */}
       {showStartScreen ? (
         <StartScreen setShowStartScreen={() => setShowStartScreen(false)} />
       ) : (

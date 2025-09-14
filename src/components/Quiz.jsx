@@ -24,6 +24,8 @@ export default function Quiz() {
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.results);
+
         const arr = data.results.map((question, index) => {
           const options = [
             ...question.incorrect_answers,
@@ -84,25 +86,25 @@ export default function Quiz() {
     (question, index) => selectedOptions[index] !== undefined
   );
 
+  const questionElements = questionsArray.map((question, index) => (
+    <Question
+      key={index}
+      question={question.question}
+      options={question.options}
+      correctAnswer={question.correctAnswer}
+      selectedOption={selectedOptions[index]}
+      showCorrectAnswer={showCorrectAnswer}
+      onOptionSelect={(option) => handleOptionSelect(index, option)}
+    />
+  ));
+
   return (
     <>
       {loading ? (
         <h1 className="loading">Loading...</h1>
       ) : (
         <div className="wrapper">
-          <div className="question-container">
-            {questionsArray.map((question, index) => (
-              <Question
-                key={index}
-                question={question.question}
-                options={question.options}
-                correctAnswer={question.correctAnswer}
-                selectedOption={selectedOptions[index]}
-                showCorrectAnswer={showCorrectAnswer}
-                onOptionSelect={(option) => handleOptionSelect(index, option)}
-              />
-            ))}
-          </div>
+          <div className="question-container">{questionElements}</div>
           {!showCorrectAnswer && (
             <button
               className="btn check-btn"

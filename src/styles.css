@@ -55,6 +55,13 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/* MY CSS */
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   font-family: "Inter", sans-serif;
   padding: 20px;
@@ -64,19 +71,28 @@ body {
   justify-content: center;
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 main {
   position: relative;
   min-width: 550px;
   max-width: 700px;
   min-height: 550px;
   background-color: #f5f7fb;
+  background-image: url(./assets/background-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.blob {
+/* .blob {
   position: absolute;
   height: 150px;
   width: 150px;
@@ -95,7 +111,7 @@ main {
   bottom: 0;
   border-radius: 0 70% 0 5px;
   background-color: #deebf8;
-}
+} */
 
 .title {
   font-family: "Karla", sans-serif;
@@ -103,14 +119,19 @@ main {
 }
 
 .start-screen-container {
-  /* width: 60%; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 50%;
+  /* position: absolute; */
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+}
+
+.start-screen-container h1,
+.start-screen-container p {
+  color: #293264;
 }
 
 .start-screen-details {
@@ -130,7 +151,7 @@ main {
 }
 
 .start-screen-button {
-  padding: 1em 3.2em;
+  padding: 1em 4rem;
   font-weight: 500;
 }
 
