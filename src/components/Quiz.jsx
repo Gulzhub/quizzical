@@ -7,8 +7,12 @@ export default function Quiz() {
   const [questionsArray, setQuestionsArray] = useState([]);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
-  const [score, setScore] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const score = Object.entries(selectedOptions).reduce(
+    (acc, [index, option]) => {
+      return option === questionsArray[index].correctAnswer ? acc + 1 : acc;
+    },
+    0
+  );
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -44,7 +48,6 @@ export default function Quiz() {
           };
         });
         setQuestionsArray(arr);
-        setLoading(false);
       });
   }
 
@@ -53,7 +56,8 @@ export default function Quiz() {
       fetchQuestions();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); //for rendering questions the first time when the component mounts
+  const loading = questionsArray.length === 0;
 
   // const [quizQuestions, setQuizQuestions] = useState(props.questionsArray);
 
@@ -64,10 +68,6 @@ export default function Quiz() {
       ...prevState,
       [questionIndex]: option,
     }));
-
-    if (option === questionsArray[questionIndex].correctAnswer) {
-      setScore((prevScore) => prevScore + 1);
-    }
   };
 
   const handleShowCorrectAnswer = () => {
@@ -77,7 +77,6 @@ export default function Quiz() {
   const handlePlayAgain = () => {
     setShowCorrectAnswer(false);
     setSelectedOptions({});
-    setScore(0);
 
     fetchQuestions();
   };

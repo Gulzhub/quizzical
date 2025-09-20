@@ -232,6 +232,11 @@ hr {
   margin-bottom: 1rem;
 }
 
+.check-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .check-btn.allow {
   cursor: pointer;
 }
